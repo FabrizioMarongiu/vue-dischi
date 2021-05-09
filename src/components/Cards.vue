@@ -1,19 +1,17 @@
 <template>
   <section class="card">
-    <img
-      src="https://www.onstageweb.com/wp-content/uploads/2018/09/bon-jovi-new-jersey.jpg"
-      alt=""
-    />
-    <h2 class="white">new jersey</h2>
-    <h3 class="grey">Bon Jovy</h3>
-    <h4 class="grey">1988</h4>
-    <h4 class="white">rock</h4>
+    <img :src="element.poster" alt="element.year" />
+    <h2 class="white text-c">{{ element.title }}</h2>
+    <h3 class="grey text-c">{{ element.author }}</h3>
+    <h4 class="grey text-c">{{ element.genre }}</h4>
+    <h4 class="white text-c">{{ element.year }}</h4>
   </section>
 </template>
 
 <script>
 export default {
   name: "Cards",
+  props: ["element"],
 };
 </script>
 
@@ -26,12 +24,15 @@ export default {
 .grey {
   color: $grey;
 }
+.text-c {
+  text-align: center;
+}
 
 .card {
-  flex-basis: calc(100% / 8 - 20px);
-  height: 270px;
+  //   flex-basis: calc(100% / 8 - 20px);
+  //   height: 270px;
+  //   margin: 10px;
   background-color: #2e3a46;
-  margin: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,6 +44,5 @@ img {
 }
 h2 {
   text-transform: uppercase;
-  text-align: center;
 }
 </style>
